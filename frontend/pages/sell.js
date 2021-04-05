@@ -1,12 +1,12 @@
 import CreateProduct from '../components/CreateProduct';
-import PleaseSignIn from '../components/PleaseSignIn';
+import PleaseLogin from '../components/PleaseLogin';
 
 export default function SellPage() {
   return (
     <div>
-      <PleaseSignIn>
+      <PleaseLogin>
         <CreateProduct />
-      </PleaseSignIn>
+      </PleaseLogin>
     </div>
   );
 }

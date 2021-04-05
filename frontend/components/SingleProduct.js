@@ -4,6 +4,7 @@ import { gql } from 'apollo-boost';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
 import { siteName } from '../config';
+import SEO from './SEO';
 
 const ProductStyles = styled.div`
   display: grid;
@@ -51,12 +52,7 @@ export default function SingleProduct({ id }) {
   const { Product } = data;
   return (
     <ProductStyles>
-      <Head>
-        <title>
-          {' '}
-          {siteName} | {Product.name}
-        </title>
-      </Head>
+      <SEO pageTitle={Product.name} />
       <img
         src={Product?.photo?.image?.publicUrlTransformed}
         alt={Product?.photo?.altText}

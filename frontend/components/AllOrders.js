@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
 import OrderItemStyles from './styles/OrderItemStyles';
 import formatMoney from '../lib/formatMoney';
+import SEO from './SEO';
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
@@ -56,9 +57,7 @@ export default function AllOrders() {
 
   return (
     <div>
-      <Head>
-        <title>Your Orders ({allOrders.length})</title>
-      </Head>
+      <SEO pageTitle={`Your Orders (${allOrders.length})`} />
       <h2>You have {allOrders.length} orders!</h2>
       <OrderUl>
         {allOrders.map((order) => (

@@ -6,6 +6,7 @@ import DisplayError from './ErrorMessage';
 import OrderStyles from './styles/OrderStyles';
 import formatMoney from '../lib/formatMoney';
 import { siteName } from '../config';
+import SEO from './SEO';
 
 const SINGLE_ORDER_QUERY = gql`
   query SINGLE_ORDER_QUERY($id: ID!) {
@@ -49,11 +50,7 @@ export default function Order({ id }) {
 
   return (
     <OrderStyles>
-      <Head>
-        <title>
-          {siteName} - #{order.id}
-        </title>
-      </Head>
+      <SEO pageTitle={`Order #${order.id}`} />
       <p>
         <span>Order Id:</span>
         <span>{order.id}</span>

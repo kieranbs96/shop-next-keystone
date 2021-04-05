@@ -5,6 +5,7 @@ import Link from 'next/link';
 import PaginationStyles from './styles/PaginationStyles';
 import DisplayError from './ErrorMessage';
 import { perPage, siteName } from '../config';
+import SEO from './SEO';
 
 export const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
@@ -22,11 +23,7 @@ export default function Pagination({ page }) {
   const pageCount = Math.ceil(count / perPage);
   return (
     <PaginationStyles>
-      <Head>
-        <title>
-          {siteName} - Page {page} of {pageCount}
-        </title>
-      </Head>
+      <SEO pageTitle="pagination" pagination={{ page, pageCount }} />
       <Link href={`/products/${page - 1}`}>
         <a aria-disabled={page <= 1}>← Prev</a>
       </Link>
